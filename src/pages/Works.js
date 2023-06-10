@@ -1,21 +1,63 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 const Works = () => {
-  return (
-    <div className={"absolute mt-24  text-slate-200 "} >
-      <p>
-        Welcome to Ways Private Limited, your premier destination for groundbreaking projects and innovative ideas in the dynamic world of theatre and the arts. We pride ourselves on our diverse portfolio, encompassing a range of exceptional plays and productions, all meticulously crafted by our talented team.</p>
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-        <p>At Ways Private, we take full ownership of our creative endeavors, working diligently to bring our vision to life. As we continue to push boundaries and redefine artistic expression, we are excited to announce our foray into the realm of feature films. With two captivating short movies already in the pipeline, we are on the path to expand our reach and leave an indelible mark on the silver screen.
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get('/api/posts/get');
+        setLoading(false);
+        setPosts(response.data);
+      } catch (error) {
+        console.log('Error fetching posts:', error);
+      }
+    };
 
-        But our commitment doesn't end there. We possess a unique expertise in creating compelling TV commercials (TVCs), public service announcements (PSAs), and various other forms of advertisement. If your company or organization is seeking a partner to elevate your brand through visually stunning and impactful campaigns, Ways Private is your go-to destination.
+    fetchPosts();
+  }, []);
 
-        Furthermore, we are actively seeking collaborations with theatre and art projects, offering our professional expertise to help them shine. Whether it's providing creative insights, technical support, or strategic guidance, we are dedicated to fostering a thriving artistic community and nurturing emerging talent.
-
-        With our unwavering passion and commitment, Ways Private Limited is at the forefront of revolutionizing the theatre and art sector. Join us on this exhilarating journey as we work tirelessly to bring you exceptional projects, thought-provoking performances, and groundbreaking innovations.
+  const loadingPost = () => (
+    <div className="w-[80vw] mx-auto overflow-hidden bg-gray-700 flex flex-col items-center justify-center mt-8">
+      <div className="loader ease-linear rounded-full border-4 border-t-4 border-b-blue-500 border-t-blue-300 h-12 w-12 mb-4"></div>
+      <h2 className="text-center text-white text-xl font-semibold">Works Loading...</h2>
+      <p className="text-center text-white">
+        This may take a few seconds, please don't close this page. If this is taking unusual time then, there might have been some error, please come back later to watch our works. Sorry for your inconvenience.
       </p>
+      <NavLink to='/home' className={'w-fit h-12 p-3 bg-blue-600 hover:bg-blue-800 rounded-lg text-center text-white font-semibold mt-3'}>Return Home</NavLink>
     </div>
-  )
-}
+  );
 
-export default Works
+  return (
+    <div className="text-slate-200">
+      <p className='md:w-[80vw] mx-auto sm:text-lg sm:font-mono tracking-tighter  sm:mt-8 p-6 md:p-0'>
+        We, Ways pride ourselves on our diverse portfolio, encompassing a range of exceptional plays, events, social works and productions, all meticulously crafted by our talented team.
+      </p>
+      {loading && loadingPost()}
+      <div className='sm:grid md:grid-cols-3 gap-6 p-6 sm:grid-cols-2'>
+        {!loading && posts.map((post) => (
+          <div key={post._id} className='mb-6 mx-auto'>
+            <img src={post.image} alt="jsdf" className='w-96 h-64 rounded-lg mx-auto' />
+            <h1 className='font-semibold mx-auto w-fit py-2 text-blue-500'>{post.title}</h1>
+            <div className='flex gap-8 xl:w-96 mx-auto'>
+              <p className='font-serif text-orange-200 '>{post.directorRole} By:<a href={post.directorlink} target='_blank' rel="noreferrer" className='hover:text-blue-300 text-blue-200 xl:w-44'> {post.director}</a></p> 
+              <p className='font-serif text-orange-200 '>{post.writerRole} By:<a href={post.writerlink} target='_blank' rel="noreferrer" className=' text-blue-300 hover:text-blue-400 xl:w-44'> {post.writer}</a></p> 
+              </div>
+            <p className='text-slate-300 xl:w-96  py-4'>{post.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className='sm:p-6 p-2'>
+        <p>
+          At Ways Private, we take full ownership of our creative endeavors, working diligently to bring our vision to life. As we continue to push boundaries and redefine artistic expression, we are excited to announce our foray into the realm of feature films. With some projects in the pipeline, we are on the path to expand our reach and leave an indelible mark on the silver screen.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Works;

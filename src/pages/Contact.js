@@ -18,7 +18,7 @@ const Contact = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    
     try {
       await axios.post('http://localhost:4000/api/viewer/contact', formData);
       // Handle success or perform any other actions
@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="mt-28 left-0 right-0 z-0 absolute rounded-lg overflow-hidden">
+    <section className=" left-0 right-0 z-0 rounded-lg overflow-hidden ">
       <div className="pt-3 pb-2 lg:pb-4 px-4 mx-auto max-w-screen-md bg-[#242526] rounded-xl border border-[#7e817d] ">
         <h2 className="mb-2 text-3xl tracking-tight font-extrabold text-center text-white">Contact Us</h2>
         <p className="mb-4 lg:mb-8 font-light text-center text-gray-200 sm:text-xl">Let's get in touch for any enquiries:</p>
@@ -88,7 +88,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="py-3 sm:ml-0 ml-16  px-5 text-sm font-medium text-center text-white rounded-lg sm:w-fit max-w-fit bg-blue-800 hover:bg-blue-700"
+            className="py-3 md:w-[35%] w-fit  px-5 text-sm font-medium text-center text-white ml-[30%]   bg-blue-800 hover:bg-blue-700 contactSend"
           >
             Send message
           </button>

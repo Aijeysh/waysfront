@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #18191A;
+  background-color: #121029;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -23,9 +23,67 @@ code {
   }
 
   .nonactiveNavHover {
-    @apply hover:border-b-2 hover:border-b-blue-600 ;
+    @apply hover:border-b-2 hover:border-b-blue-600;
   }
-  .gridChilds{
-    @apply grid  border-2 rounded-lg p-4 mx-auto border-gray-400  max-w-sm sm:h-56 bg-[#242528] self-center;
+
+  .gridChilds {
+    @apply grid border-2 rounded-lg p-4 mx-auto border-gray-400 max-w-sm sm:h-56 bg-[#97aac269] self-center;
   }
+}
+
+.nonactiveNavHover {
+  box-shadow: rgba(49, 48, 48, 0.17) 0px -23px 25px 0px inset, rgba(32, 32, 32, 0.15) 0px -36px 30px 0px inset, rgba(58, 56, 56, 0.1) 0px -79px 40px 0px inset, rgba(44, 43, 43, 0.06) 0px 2px 1px, rgba(48, 47, 47, 0.09) 0px 4px 2px, rgba(49, 48, 48, 0.09) 0px 8px 4px, rgba(56, 55, 55, 0.09) 0px 16px 8px, rgba(29, 28, 28, 0.09) 0px 32px 16px;
+}
+
+.gridChilds {
+  box-shadow: rgba(39, 52, 97, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.gridChilds3:hover {
+  box-shadow: rgba(146, 158, 226, 0.4) 5px 5px, rgba(170, 143, 160, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(66, 57, 63, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.gridChilds1:hover {
+  box-shadow: rgba(146, 158, 226, 0.4) -5px 5px, rgba(170, 143, 160, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(66, 57, 63, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+.gridChilds2:hover {
+  box-shadow: rgba(146, 158, 226, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+}
+
+.gridChild1Hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+}
+.gridChild1Show{
+  opacity: 1;
+  transition: all 1.5s;
+}
+
+.homecontactHidden{
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateX(-100%);
+
+}
+
+.homecontactShow{
+  opacity: 1;
+  transition: all 2s;
+}
+
+
+
+.contactSend {
+  border-radius: 100px;
+  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
 }
