@@ -28,7 +28,7 @@ const AddPost = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/api/posts/', postData);
+      await axios.post('https://ways-service.onrender.com/api/posts/', postData);
       navigate('/works');
       console.log('Post Submitted Successfully');
     } catch (error) {

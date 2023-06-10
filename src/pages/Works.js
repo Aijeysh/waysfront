@@ -9,7 +9,7 @@ const Works = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('/api/posts/get');
+        const response = await axios.get('https://ways-service.onrender.com/api/posts/get');
         setLoading(false);
         setPosts(response.data);
       } catch (error) {
@@ -43,9 +43,9 @@ const Works = () => {
             <img src={post.image} alt="jsdf" className='w-96 h-64 rounded-lg mx-auto' />
             <h1 className='font-semibold mx-auto w-fit py-2 text-blue-500'>{post.title}</h1>
             <div className='flex gap-8 xl:w-96 mx-auto'>
-              <p className='font-serif text-orange-200 '>{post.directorRole} By:<a href={post.directorlink} target='_blank' rel="noreferrer" className='hover:text-blue-300 text-blue-200 xl:w-44'> {post.director}</a></p> 
-              <p className='font-serif text-orange-200 '>{post.writerRole} By:<a href={post.writerlink} target='_blank' rel="noreferrer" className=' text-blue-300 hover:text-blue-400 xl:w-44'> {post.writer}</a></p> 
-              </div>
+              <p className='font-serif text-orange-200 '>{post.directorRole} By:<a href={post.directorlink} target='_blank' rel="noreferrer" className='hover:text-blue-300 text-blue-200 xl:w-44'> {post.director}</a></p>
+              <p className='font-serif text-orange-200 '>{post.writerRole} By:<a href={post.writerlink} target='_blank' rel="noreferrer" className=' text-blue-300 hover:text-blue-400 xl:w-44'> {post.writer}</a></p>
+            </div>
             <p className='text-slate-300 xl:w-96  py-4'>{post.description}</p>
           </div>
         ))}

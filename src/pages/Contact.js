@@ -18,10 +18,16 @@ const Contact = () => {
   };
 
   const handleSubmit = async (event) => {
-    
+    event.preventDefault();
     try {
-      await axios.post('http://localhost:4000/api/viewer/contact', formData);
+      await axios.post('https://ways-service.onrender.com/api/viewer/contact', formData);
       // Handle success or perform any other actions
+      setFormData({
+        contactmail: '',
+        contactnumber: '',
+        subject: '',
+        enquiry: ''
+      });
       console.log('Form data sent successfully');
     } catch (error) {
       // Handle error or perform any other actions

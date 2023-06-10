@@ -35,7 +35,7 @@ const UpdatePost = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.put('/api/posts/update', postData);
+      await axios.put('https://ways-service.onrender.com/api/posts/update', postData);
       navigate('/adminedit');
       console.log('Post Updated Successfully');
     } catch (error) {

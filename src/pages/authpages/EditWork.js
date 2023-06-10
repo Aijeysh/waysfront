@@ -8,7 +8,7 @@ const EditWork = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('/api/posts/get');
+        const response = await axios.get('https://ways-service.onrender.com/api/posts/get');
         setPosts(response.data);
       } catch (error) {
         console.log('Error fetching posts:', error);
@@ -20,7 +20,7 @@ const EditWork = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/posts/delete/${id}`);
+      await axios.delete(`https://ways-service.onrender.com/api/posts/delete/${id}`);
       console.log('Post deleted successfully');
       setPosts((prevPosts) => prevPosts.filter((post) => post._id !== id));
     } catch (error) {

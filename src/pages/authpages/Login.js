@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/api/users/auth', loginData);
+      await axios.post('https://ways-service.onrender.com/api/users/auth', loginData);
       // Handle success or perform any other actions
       navigate('/adminedit');
       console.log("logged In");

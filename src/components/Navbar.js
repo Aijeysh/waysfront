@@ -81,7 +81,7 @@ const Navbar = () => {
             <NavLink
               to="/home"
               onClick={() => handleNavLinkClick()}
-              className={({ isActive }) => (isActive ? 'activeNav md:block hiddeno' : 'nonactiveNavHover md:block hidden')}
+              className={({ isActive }) => (isActive ? 'activeNav md:block hidden' : 'nonactiveNavHover md:block hidden')}
             >
               Home
             </NavLink>
@@ -90,7 +90,7 @@ const Navbar = () => {
             <NavLink
               to="/services"
               onClick={() => handleNavLinkClick()}
-              className={({ isActive }) => (isActive ? 'activeNav md:block hiddeno' : 'nonactiveNavHover md:block hidden')}
+              className={({ isActive }) => (isActive ? 'activeNav md:block hidden' : 'nonactiveNavHover md:block hidden')}
             >
               Services
             </NavLink>
@@ -99,7 +99,7 @@ const Navbar = () => {
             <NavLink
               to="/about"
               onClick={() => handleNavLinkClick()}
-              className={({ isActive }) => (isActive ? 'activeNav md:block hiddeno' : 'nonactiveNavHover md:block hidden')}
+              className={({ isActive }) => (isActive ? 'activeNav md:block hidden' : 'nonactiveNavHover md:block hidden')}
             >
               About
             </NavLink>
@@ -108,7 +108,7 @@ const Navbar = () => {
             <NavLink
               to="/works"
               onClick={() => handleNavLinkClick()}
-              className={({ isActive }) => (isActive ? 'activeNav md:block hiddeno' : 'nonactiveNavHover md:block hidden')}
+              className={({ isActive }) => (isActive ? 'activeNav md:block hidden' : 'nonactiveNavHover md:block hidden')}
             >
               Works
             </NavLink>
@@ -117,7 +117,7 @@ const Navbar = () => {
             <NavLink
               to="/contact"
               onClick={() => handleNavLinkClick()}
-              className={({ isActive }) => (isActive ? 'activeNav md:block hiddeno' : 'nonactiveNavHover md:block hidden')}
+              className={({ isActive }) => (isActive ? 'activeNav md:block hidden' : 'nonactiveNavHover md:block hidden')}
             >
               Contact
             </NavLink>

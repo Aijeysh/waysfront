@@ -20,7 +20,7 @@ const AdminContact = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/viewer/delete/${id}`);
+      await axios.delete(`https://ways-service.onrender.com/api/viewer/delete/${id}`);
       console.log('Post deleted successfully');
       setContacts((prevContacts) => prevContacts.filter((contact) => contact._id !== id));
     } catch (error) {
